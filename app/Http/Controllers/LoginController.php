@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function register(Request $request){
+    public function Register(Request $request){
 
         $user = new User();
         $user->name = $request->name;
@@ -24,11 +24,11 @@ class LoginController extends Controller
 
     }
 
-    public function login(Request $request){
+    public function Login(Request $request){
 
     }
 
-    public function logout(Request $request){
+    public function Logout(Request $request){
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
