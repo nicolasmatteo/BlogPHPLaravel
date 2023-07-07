@@ -7,7 +7,7 @@
 </head>
 <body>
     <main class="container align-center p-5">
-        <from method="POST" action="{{route('validarRegistro')}}">
+        <form method="POST" action="/login">
             @csrf
             <div class="mb-3">
                 <label for="emailInput">Email</label>
@@ -22,9 +22,9 @@
                 <label for="rememberCheck">Mantener sesion iniciada</lable>
             </div>
             <div>
-                <p>No tenes cuenta? <a href="{{route('registro')}}">Registrarse</a></p>
+                <p>No tenes cuenta? <a href="/registrarse">Registrarse</a></p>
             <button type="submit">Registrarse</button>
-        </from>
+        </form>
     </main>
 </body>
 </html>

@@ -7,7 +7,7 @@
 </head>
 <body>
     <main class="container align-center p-5">
-        <from method="POST" action="{{route('validarRegistro')}}">
+        <form action="/validarRegistro" method="post">
             @csrf
             <div class="mb-3">
                 <label for="emailInput">Email</label>
@@ -22,7 +22,7 @@
                 <input type="text" id="userInput" name="name" required aurocomplete="disable">
             </div>
             <button type="submit">Registrarse</button>
-        </from>
+        </form>
     </main>
 </body>
 </html>
