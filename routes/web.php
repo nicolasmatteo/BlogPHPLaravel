@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use app\Http\Controllers\LoginController;
+use App\Http\Controllers\LoginController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +13,12 @@ use app\Http\Controllers\LoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::view('/login', "login")->name('login');
-Route::view('/registro', "register")->name('registro');
-Route::view('/privada', "secret")->name('privada');
 
-Route::post('/validarRegistro', [LoginController::class, 'registrer'])->name('validarRegistro');
+Route::post('/validarRegistro', [LoginController::class, 'Register']);
 Route::post('/iniciaSesion', [LoginController::class, 'login'])->name('iniciaSesion');
 
-Route::get('/logout', [LoginController::class, 'logout'])->name('logiut');
+Route::get('/logout', [LoginController::class, 'logout'])->name('cerrarSesion');
+Route::get('/login', function(){return view('login');}); 
+Route::get('/registrarse', function(){return view('register');});
+Route::get('/', function(){return view ('inicio');});
+

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use app\Models\User;
+use App\Models\Usuario;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,19 +13,24 @@ class LoginController extends Controller
     public function Register(Request $request){
 
         $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $user->name = $request->post('name');
+        $user->email = $request->post('email');
+        $user->password = Hash::make($request->post('password'));
 
         $user->save();
 
-        Auth::login($user);
-        return redirect(route('privada'));
+        
+        return redirect('/login');
 
     }
 
     public function Login(Request $request){
 
+        $datos = $request -> only(['email','password']);
+        if(!Auth::attempt($datos)){
+            return redirect('/login');
+        }
+        return redirect('/inicio');
     }
 
     public function Logout(Request $request){

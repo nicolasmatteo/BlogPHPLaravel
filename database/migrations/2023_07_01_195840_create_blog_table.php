@@ -16,9 +16,10 @@ class CreateBlogTable extends Migration
         Schema::create('blog', function (Blueprint $table) {
             $table->id();
             $table->string('nombreUsuario');
-            $table->mediumtext('contenidoBlog');
             $table->String('nombreDelBlog');
+            $table->mediumtext('contenidoBlog');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
