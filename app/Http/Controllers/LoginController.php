@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,9 +16,7 @@ class LoginController extends Controller
         $user->name = $request->post('name');
         $user->email = $request->post('email');
         $user->password = Hash::make($request->post('password'));
-
         $user->save();
-
         
         return redirect('/login');
 
@@ -30,14 +28,12 @@ class LoginController extends Controller
         if(!Auth::attempt($datos)){
             return redirect('/login');
         }
-        return redirect('/inicio');
+        return redirect('/');
     }
 
     public function Logout(Request $request){
         Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
 
-        return redirect(route('login'));
+        return redirect('/login');
     }
 }

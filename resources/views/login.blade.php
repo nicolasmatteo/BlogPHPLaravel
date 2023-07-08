@@ -21,6 +21,10 @@
                 <input type="checkbox" id="rememberCheck" name="remember">
                 <label for="rememberCheck">Mantener sesion iniciada</lable>
             </div>
+            <div class="mb-3">
+                <label for="emailInput">name</label>
+                <input type="text" id="nameInput" name="name" required aurocomplete="disable">
+            </div>
             <div>
                 <p>No tenes cuenta? <a href="/registrarse">Registrarse</a></p>
             <button type="submit">Registrarse</button>

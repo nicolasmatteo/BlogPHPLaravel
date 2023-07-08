@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController; 
+use App\Http\Controllers\BlogController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,10 @@ use App\Http\Controllers\LoginController;
 
 Route::post('/validarRegistro', [LoginController::class, 'Register']);
 Route::post('/iniciaSesion', [LoginController::class, 'login'])->name('iniciaSesion');
+Route::post("/login",[LoginController::class,"Login"]);
 
-Route::get('/logout', [LoginController::class, 'logout'])->name('cerrarSesion');
+Route::get('/logout', [LoginController::class, 'Logout'])->name('cerrarSesion');
 Route::get('/login', function(){return view('login');}); 
 Route::get('/registrarse', function(){return view('register');});
-Route::get('/', function(){return view ('inicio');});
+Route::get("/",[BlogController::class,"GetAllPosts"]);
 

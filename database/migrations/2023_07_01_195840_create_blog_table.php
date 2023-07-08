@@ -15,13 +15,18 @@ class CreateBlogTable extends Migration
     {
         Schema::create('blog', function (Blueprint $table) {
             $table->id();
-            $table->string('nombreUsuario');
-            $table->String('nombreDelBlog');
+            $table->unsignedBigInteger('AutorId');
+            $table->foreign('AutorId')->references('id')->on('usuario');
+            $table->string('nombreDelBlog');
             $table->mediumtext('contenidoBlog');
+            $table->dateTime('fecha');
             $table->timestamps();
             $table->softDeletes();
-        });
+        });        
+        
     }
+
+    
 
     /**
      * Reverse the migrations.
