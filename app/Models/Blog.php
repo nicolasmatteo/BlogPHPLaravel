@@ -12,7 +12,7 @@ class Blog extends Model
 
     public function blog()
     {
-        return $this->hasMany(Blog::class, 'AutorId');
-    }
+        return $this->belongTo(User::class);
+    }    
 
 }
