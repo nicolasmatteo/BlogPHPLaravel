@@ -28,6 +28,7 @@
 
             @endif
 
+
        
             <div class="contenido">
             @foreach ($blogs as $blog)
@@ -37,7 +38,8 @@
                     </div>
                     <div class="post-body">
                         <p>{{ $blog->contenidoBlog }}</p>
-                        <p>Publicated at {{$blog->fecha}} by {{ $blog->usuario}}</p>
+                        <p>subido el: {{$blog->fecha}}</p>
+                        
                     </div>
                 </div>
             @endforeach
